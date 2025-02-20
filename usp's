@@ -1,12 +1,8 @@
-<section class="usp-section-pdp”>
-
-
-
-
-
-  <div class="usp-item-pdp">
-    <div class="usp-icon-pdp">
-      <svg width="13" height="15" viewbox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+<section class="usp-section">
+  <!-- First USP item -->
+  <div class="usp-item">
+    <div class="usp-icon">
+      <svg width="13" height="15" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M2.70837 6.5L5.05564 9.75L10.8334 3.25" stroke="#000" stroke-opacity="0.6" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round">
         </path>
       </svg>
@@ -16,11 +12,10 @@
     </p>
   </div>
 
-
-
-  <div class="usp-item-pdp">
-    <div class="usp-icon-pdp">
-      <svg width="13" height="15" viewbox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Second USP item -->
+  <div class="usp-item">
+    <div class="usp-icon">
+      <svg width="13" height="15" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M2.70837 6.5L5.05564 9.75L10.8334 3.25" stroke="#000" stroke-opacity="0.6" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round">
         </path>
       </svg>
@@ -30,28 +25,31 @@
     </p>
   </div>
 
+{%- assign price = product.selected_or_first_available_variant.price -%}
+{%- assign compare_price = product.selected_or_first_available_variant.compare_at_price -%}
 
 
-  <div class="usp-item-pdp">
-    <div class="usp-icon-pdp">
-      <svg width="13" height="15" viewbox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M2.70837 6.5L5.05564 9.75L10.8334 3.25" stroke="#000" stroke-opacity="0.6" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round">
-        </path>
-      </svg>
-    </div>
-    <p class="usp-title">
-      Pay in 3 installments or later with Klarna
-    </p>
+<div class="usp-item">
+  <div class="usp-icon">
+    <svg width="13" height="15" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2.70837 6.5L5.05564 9.75L10.8334 3.25"
+            stroke="#000" stroke-opacity="0.6" stroke-miterlimit="10"
+            stroke-linecap="round" stroke-linejoin="round">
+      </path>
+    </svg>
   </div>
+  <p class="usp-title">
+    Pay later in 3 installments of {{ price | divided_by: 3.0 | money }} with Klarna
+  </p>
+</div>
+
+
 </section>
 
 
 
-
-
-
 <style>
-.usp-section-pdp {
+.usp-section {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -63,13 +61,13 @@
   background: #f8f8f8;
 }
 
-.usp-item-pdp {
+.usp-item {
   display: flex;
   align-items: center;
   margin-bottom: 0px;
 }
 
-.usp-icon-pdp {
+.usp-icon {
   width: 20px;
   height: 20px;
   margin-right: 9px;
@@ -78,7 +76,7 @@
   justify-content: center;
 }
 
-.usp-icon-pdp img {
+.usp-icon img {
   max-width: 100%;
   max-height: 100%;
   border-radius: 50px;
