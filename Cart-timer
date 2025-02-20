@@ -1,0 +1,141 @@
+    {%- for item in cart.items -%}
+      {% if forloop.first %}
+        <div class="four-timer-container">
+          <div class="four-timer-wrapper">
+            <span id="four-timer-text">Your cart is reserved for:</span>
+            <span id="four-timer" class="four-timer-value"></span> 
+          </div>
+        </div>
+      {% endif %}
+
+
+
+
+
+<style>
+.four-timer-container {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  /* Optional: center the timer and give it a border or background */
+  text-align: center;
+  border-bottom: 1px solid lightgray;
+  background-color: #f9f9f9;
+}
+
+.four-timer-wrapper {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 12px;
+  font-weight: 400;
+  color: #000;
+  text-transform: none;
+  box-sizing: border-box;
+}
+
+.four-timer-value {
+  font-weight: 700;
+}
+</style>
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+
+  <script>
+    /**********************************************************
+     * Configuration
+     **********************************************************/
+    const COUNTDOWN_DURATION = 10 * 60 * 1000; // 10 minutes in milliseconds
+    const COOKIE_NAME = 'newStoreCartTimer';
+
+    /**
+     * Updates the visible timer with the time left in MM:SS format
+     * @param {number} timeLeft - Remaining time in milliseconds
+     */
+    function updateTimerDisplay(timeLeft) {
+      const minutes = Math.floor(timeLeft / 60000);
+      const seconds = Math.floor((timeLeft % 60000) / 1000);
+      const timerElement = document.getElementById('four-timer'); // Important: must match the HTML ID
+
+      if (timerElement) {
+        timerElement.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+      } else {
+        console.error('Timer element not found on the page.');
+      }
+    }
+
+    /**
+     * Starts a brand-new timer, sets a cookie with the expiration time,
+     * and begins the countdown.
+     */
+    function startNewTimer() {
+      const endTime = Date.now() + COUNTDOWN_DURATION;
+      // Cookie expires in 1 day; adjust if needed
+      Cookies.set(COOKIE_NAME, endTime, { expires: 1 });
+
+      startInterval(endTime);
+    }
+
+    /**
+     * Begins an interval loop to decrement the timer every second based on an existing endTime.
+     * @param {number} endTime - The timestamp (ms) when the countdown will end
+     */
+    function startInterval(endTime) {
+      const timerInterval = setInterval(() => {
+        const currentTime = Date.now();
+        const timeLeft = endTime - currentTime;
+
+        if (timeLeft <= 0) {
+          clearInterval(timerInterval);
+          // Timer has finished; optionally handle cart clearing or show a message
+          startNewTimer(); 
+        } else {
+          updateTimerDisplay(timeLeft);
+        }
+      }, 1000);
+    }
+
+    /**
+     * Resumes an existing timer if valid; otherwise, starts a new one.
+     */
+    function resumeOrStartTimer() {
+      const savedEndTime = Cookies.get(COOKIE_NAME);
+
+      // If there's a saved endTime and it’s still in the future, resume. Else, start fresh.
+      if (savedEndTime && !isNaN(savedEndTime)) {
+        const endTime = parseInt(savedEndTime, 10);
+        const timeLeft = endTime - Date.now();
+        
+        if (timeLeft > 0) {
+          startInterval(endTime);
+        } else {
+          startNewTimer();
+        }
+      } else {
+        startNewTimer();
+      }
+    }
+
+    /**
+     * Initialize the timer when the DOM is fully loaded.
+     */
+    document.addEventListener('DOMContentLoaded', () => {
+      resumeOrStartTimer();
+    });
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
