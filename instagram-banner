@@ -1,0 +1,278 @@
+<div id="instagram-banner" class="instagram-banner">
+
+<div class="instagram-feed-widescreen">
+  
+<div>
+<h2 class="h2 standard__heading h2-left-margin" style="margin-left: 15px;">
+  
+The Four Movement  
+
+</h2>
+</div>
+
+
+<div class="swiper InstagramFeed">
+<div class="swiper-wrapper">
+
+  
+
+
+<a class="swiper-slide swiper-slide-image">
+<div class="instagram-post">
+<img width="25" height="25" class="instagram-icon" alt="instagram icon" loading="lazy" src="https://cdn.shopify.com/s/files/1/0549/0117/8598/files/instagram_12.svg?v=1676588494">
+</div>
+<img width="300" height="300" loading="lazy" alt="instagram post" src="https://cdn.shopify.com/s/files/1/0646/5205/0667/files/460470116_1248589062841880_2358832084830105955_n.jpg?v=1739781440">
+</a>
+
+
+
+<a class="swiper-slide swiper-slide-image">
+<div class="instagram-post">
+<img width="25" height="25" class="instagram-icon" alt="instagram icon" loading="lazy" src="https://cdn.shopify.com/s/files/1/0549/0117/8598/files/instagram_12.svg?v=1676588494">
+</div>
+<img width="300" height="300" loading="lazy" alt="instagram post" src="https://cdn.shopify.com/s/files/1/0646/5205/0667/files/476916239_18486355369040908_4047357659272591015_n.jpg?v=1739781440">
+</a>
+
+
+
+
+<a class="swiper-slide swiper-slide-image">
+<div class="instagram-post">
+<img width="25" height="25" class="instagram-icon" alt="instagram icon" loading="lazy" src="https://cdn.shopify.com/s/files/1/0549/0117/8598/files/instagram_12.svg?v=1676588494">
+</div>
+<img width="300" height="300" loading="lazy" alt="instagram post" src="https://cdn.shopify.com/s/files/1/0646/5205/0667/files/474431281_18483058456040908_3168827078694787879_n.jpg?v=1739784211">
+</a>
+
+
+
+<a class="swiper-slide swiper-slide-image">
+<div class="instagram-post">
+<img width="25" height="25" class="instagram-icon" alt="instagram icon" loading="lazy" src="https://cdn.shopify.com/s/files/1/0549/0117/8598/files/instagram_12.svg?v=1676588494">
+</div>
+<img width="300" height="300" loading="lazy" alt="instagram post" src="https://cdn.shopify.com/s/files/1/0646/5205/0667/files/472014193_1645272096423002_6506333769594634039_n.jpg?v=1739781440">
+</a>
+
+ 
+  
+<a class="swiper-slide swiper-slide-image">
+<div class="instagram-post">
+<img width="25" height="25" class="instagram-icon" alt="instagram icon" loading="lazy" src="https://cdn.shopify.com/s/files/1/0549/0117/8598/files/instagram_12.svg?v=1676588494">
+</div>
+<img width="300" height="300" loading="lazy" alt="instagram post" src="https://cdn.shopify.com/s/files/1/0646/5205/0667/files/477608263_18486552517040908_238911569649800652_n.jpg?v=1739784805">
+</a>
+
+
+
+
+</div>
+
+</div>
+
+
+  <script>
+    var swiper = new Swiper(".InstagramFeed", {
+      slidesPerView: 6,
+      breakpoints: {
+      1: {
+        slidesPerView: 3,
+        spaceBetween: 12
+      },
+      500: {
+        slidesPerView: 3,
+        spaceBetween: 12
+      },
+      1000: {
+        slidesPerView: 6,
+      },
+      2000: {
+        slidesPerView: 6,
+      }
+      },
+      spaceBetween: 25,
+      loop: true,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+#instagram-banner .page-row-content {
+margin: var(--outer);
+text-align: left!important;
+}
+
+
+#instagram-banner .swiper {
+width: 140%;
+height: 100%;
+margin-top: 50px;
+}
+
+#instagram-banner     .swiper-slide {
+text-align: center;
+font-size: 18px;
+background: #fff;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+#instagram-banner     .instagram-post  {
+position: absolute;
+background: transparent;
+opacity: 0;
+width: 100%;
+height: 100%;
+transition: all 0.3s ease;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+#instagram-banner     .instagram-post:hover  {
+position: absolute;
+opacity: 1;
+background: #ffffffa8;
+width: 100%;
+height: 100%;
+transition: all 0.3s ease;
+}
+
+#instagram-banner     .swiper-slide img {
+display: block;
+width: 100%;
+height: 100%;
+object-fit:cover;
+}
+
+#instagram-banner     .swiper-slide-image {
+height: 300px;
+border: 2px solid white;
+border-radius: 3px;
+object-fit: cover;
+position:relative;
+}
+
+#instagram-banner     .swiper-button-next, .swiper-button-prev {
+color: black!important;
+}
+
+#instagram-banner    .swiper {
+margin-left: auto;
+margin-right: auto;
+  overflow: hidden;
+}
+#instagram-banner    .swiper-button-next {
+background: #ffffffa8!important;
+top: 22px!important;
+width: 35px!important;
+height: 300px!important;
+}
+
+#instagram-banner .swiper-button-prev {
+background: #ffffffa8!important;
+top: 22px!important;
+width: 35px!important;
+height: 300px!important;
+}
+
+#instagram-banner    .swiper-button-next, .swiper-rtl .swiper-button-prev {
+right: 0;
+left: auto;
+}
+
+#instagram-banner    .swiper-button-prev, .swiper-rtl .swiper-button-next {
+left: 0;
+right: auto;
+}
+
+#instagram-banner .swiper-button-next:after {
+font-size: 30px!important;
+}
+
+#instagram-banner .swiper-button-prev:after {
+font-size: 30px!important;
+}
+
+@media only screen and (max-width: 767px) {
+#instagram-banner    .swiper-slide img {
+display: block;
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+}
+
+#instagram-banner    .swiper-slide-image {
+height: 300px;
+border: 2px solid white;
+border-radius: 3px;
+  max-width: 185px;
+  margin-right: 2px !important;
+}
+
+#instagram-banner   .swiper-button-prev {
+background: #ffffffa8!important;
+top: 22px!important;
+width: 35px!important;
+height: 150px!important;
+}
+
+
+#instagram-banner    .swiper-button-next {
+background: #ffffffa8!important;
+top: 22px!important;
+width: 35px!important;
+height: 150px!important;
+}
+
+
+#instagram-banner .swiper-button-next:after {
+font-size: 20px!important;
+}
+
+
+#instagram-banner .swiper-button-prev:after {
+font-size: 20px!important;
+}
+
+
+#instagram-banner     .swiper {
+width: 140%;
+height: 100%;
+margin-top: 10px;
+          margin-left: 15px;
+}
+
+
+#instagram-banner     .page-row-headline.featured h2 {
+line-height: 1;
+}
+
+
+.instagram-banner {
+padding-top: 40px;
+padding-bottom: 0px;
+background: white;
+  overflow: hidden;
+}
+
+
+#instagram-banner .instagram-icon {
+width: 17px!important;
+height: 17px!important;
+border: none!important;
+}
