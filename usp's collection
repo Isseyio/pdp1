@@ -1,0 +1,90 @@
+      <section class="usp-section-col">
+  <!-- First USP item -->
+  <div class="usp-item">
+    <div class="usp-icon">
+      <svg width="13" height="15" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2.70837 6.5L5.05564 9.75L10.8334 3.25" stroke="#000" stroke-opacity="0.6" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round">
+        </path>
+      </svg>
+    </div>
+    <p class="usp-title">
+       Ordered before 13:00 shipped today
+    </p>
+  </div>
+
+  <!-- Second USP item -->
+  <div class="usp-item">
+    <div class="usp-icon">
+      <svg width="13" height="15" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2.70837 6.5L5.05564 9.75L10.8334 3.25" stroke="#000" stroke-opacity="0.6" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round">
+        </path>
+      </svg>
+    </div>
+    <p class="usp-title">
+      Extended 30-day free returns
+    </p>
+  </div>
+
+
+
+  <div class="usp-item">
+    <div class="usp-icon">
+      <svg width="13" height="15" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2.70837 6.5L5.05564 9.75L10.8334 3.25" stroke="#000" stroke-opacity="0.6" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round">
+        </path>
+      </svg>
+    </div>
+    <p class="usp-title">
+      Pay in 3 installments or later 
+ with Klarna
+    </p>
+  </div>
+
+
+</section>
+
+              <style>
+                @media screen and (min-width: 768px) {
+  .usp-section-col {
+    display: none !important;
+  }
+}
+
+.usp-section-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: 15px;
+  margin-top: 10px;
+  margin-bottom: 35px;
+  padding-left: 10px;
+}
+
+.usp-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0px;
+}
+
+.usp-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.usp-icon img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 50px;
+}
+
+.check-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  display: inline-block;
+}
+</style>
