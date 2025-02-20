@@ -1,0 +1,158 @@
+<script>
+ document.querySelectorAll('.upsell-checkbox').forEach(function(checkbox) {
+  // On page load: if the checkbox's variant ID is stored as added, mark it as checked.
+  if (localStorage.getItem('upsell_' + checkbox.dataset.id) === 'true') {
+    checkbox.checked = true;
+  }
+
+  // Listen for changes on the checkbox.
+  checkbox.addEventListener('change', function() {
+    const variantId = this.dataset.id;
+    const quantity = parseInt(this.dataset.qty, 10) || 1;
+
+    if (this.checked) {
+      // Add the variant to the cart.
+      changeVariant('/cart/add.js', { id: variantId, quantity: quantity });
+      // Save the checked state in localStorage.
+      localStorage.setItem('upsell_' + variantId, 'true');
+    } else {
+      // Remove the variant from the cart.
+      changeVariant('/cart/change.js', { id: variantId, quantity: 0 });
+      // Remove the checked state from localStorage.
+      localStorage.removeItem('upsell_' + variantId);
+    }
+  });
+});
+</script>
+
+
+
+
+
+
+
+
+<style>.
+.upsell-checkbox-label {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  text-align: left;
+  font-size: 9px;
+  gap: 1rem;
+}
+
+.upsell-checkbox-label p {
+  margin: 0; /* Remove default margins for better alignment */
+  padding-left: 0px; /* Optional: Add some spacing between the checkbox and the price */
+}
+
+.checkmark {
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border: 2px solid #000;
+  display: inline-block;
+  margin-left: 0px;
+  margin-top: 10px;
+  /* your styling here */
+}
+
+.upsell-checkbox:checked + .checkmark {
+  background: #000; 
+  /* or your custom "checked" style */
+}
+.upsell-header {
+  text-align: center;
+  margin-top: 35px;
+  margin-bottom: 20px;
+}
+
+.complete-order-container {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 10px;            /* space between the text and the lines */
+  margin-left: 15px;
+}
+
+.complete-order-text {
+  font-size: 15px;
+  font-weight: 600;
+}
+.complete-order-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="upsell-header">
+<div class="complete-order-container">
+  <span class="complete-order-text">Complete your order</span>
+  <span class="todays-offers" style="margin-right: 15px; font-size: 12px; background: #f8f8f8; padding: 5px;">
+    Today's offers
+  </span>
+</div>
+
+                          
+     {% if settings.upsell-products_collection != blank %}
+  <div class="cart-upsell-product cart-container">
+    {% if settings.upsell-title != blank %}
+      <h5 class="upsell-product-title">Today's bestsellers</h5>
+    {% endif %}
+    {% if settings.upsell-description != blank %}
+      <h6 class="upsell-product-description">{{ settings.upsell-description }}</h6>
+    {% endif %}
+
+    <div class="cart-upsell-product-main">
+      <div class="cart-upsell-product-card-container">
+        {% for product in settings.upsell-products_collection.products limit: 2 %}
+          <div class="cart-upsell-product-card">
+            <!-- Image on the left -->
+            <div class="product-img">
+              <a href="{{ product.url }}">
+                <img src="{{ product.featured_image | img_url:'400X' }}" alt="{{ product.handle }}">
+              </a>
+            </div>
+
+            <!-- Text in the middle -->
+            <div class="product-info">
+  <!-- Flex container for title and price -->
+  <div class="title-price-row" style="display: flex; justify-content: space-between; text-align: left; gap: 1rem;">
+    <h6 style="margin: 0;"><a href="{{ product.url }}">{{ product.title }}</a></h6>
+    <b style="margin: 0;">{{ product.price | money }}</b>
+  </div>
+
+  <label class="upsell-checkbox-label">
+        <p>Please check this box to receive the signature FOUR shopping bag with your order</p>
+    <input 
+      type="checkbox" 
+      class="upsell-checkbox" 
+      data-id="{{ product.first_available_variant.id }}" 
+      data-qty="1" 
+    />
+  </label>
+</div>
+
+
+          
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endif %}
